@@ -1,17 +1,20 @@
 const cl = console.log;
 
-const onClickicon = document.getElementById('onClickicon');
-const navigation = document.getElementById('navigation');
+const icon = document.getElementById('icon');
+const icon2 = document.getElementById('icon2');
+const navlist = document.getElementById('navlist');
+const navlist2 = document.getElementById('navlist2');
 
 
-const onClickhandler = eve => {
-    navigation.classList.toggle('active');
+
+const onClickhandler = () => {
+    navlist.classList.toggle("active");
+}
+
+const onClick = () => {
+    navlist2.classList.toggle("active");
 }
 
 
-
-
-
-
-
-onClickicon.addEventListener('click', onClickhandler)
+icon.addEventListener('click',onClickhandler);
+icon2.addEventListener('click',onClick);

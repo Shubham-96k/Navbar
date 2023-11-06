@@ -1,88 +1,165 @@
-:root{
-    --primary-color : #8a817c;
-    --secondary-color: #f7f7ff;
-}
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-body{
-    background-color: var(--primary-color);
-    font-family: 'Roboto', sans-serif;
-}
-
-.container{
-    width: 90%;
-    max-width: 73.75rem;
-    margin: 0 auto;
-}
-
-.header-section h1{
-    padding-left: 0.938rem;
-}
-
-.simple{
-    list-style: none;
+*{
     padding: 0;
-    background-color: var(--secondary-color);
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --bg-color : #124559;
+    --color-primary: #fff;
+    --color-dark: #000;
+}
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap');
+body{
+   background-color: var(--bg-color);
+   font-family: 'Asap', sans-serif;
+   color: var(--color-primary);
+}
+.container {
+    width: 100%;
+    max-width: 73.75rem;
+    margin: 80px auto;
+    padding: 0 15px;
+}
+
+ul{
+    list-style: none;
+}
+a:link,
+a:visited{
+    text-decoration: none;
+}
+
+.heading {
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    margin: 40px 0;
+}
+
+.main{
     display: flex;
     text-align: center;
 }
-
-ul>li{
-    display: inline-block;
+hr{
+    display: none;
+}
+.main li{
     flex-grow: 1;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
+}
+.main li a{
+    padding: 0.650rem;
+    display: block;
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    border-radius: 25px;
+    transition: all .5s ease-in-out;
 }
 
-ul li a:link,
-ul li a:visited{
-    text-decoration: none;
-    display: inline-block;
-    padding: 0.625rem;
-    width: 100%; 
-    color: var(--primary-color);
+.main li a:hover, 
+.main li a:focus, 
+.main li a:active {
+    background-color: var(--color-primary);
+    color: var(--bg-color);
+    outline: 1px solid #fff;
+    outline-offset: 3px;
+    transform: scale(1.2,1.2);
+}
+.icon i{
+    display: none;
+}
+
+/* ####### CSS FOR ADVANCE NAVBAR ########## */
+
+.main2{
+    display: flex;
+}
+.main2 li{
+    flex-grow : 1;
+}
+.main2 li a{
+    display :flex;
+    padding: 0.65rem;
+    color: var(--color-primary);
+    position : relative;
+}
+.navicon{
+    flex-basis: 50px;
+    text-align: center;
+    align-self: center;
+    font-size: 25px;
+}
+.info{
+    margin-left: 10px;
+    flex-grow: 1;
+}
+.info h4{
+    font-size: 32px;
+    font-weight: 900;
     text-transform: capitalize;
+}
+
+.main2 li a::after {
+    content: ' ';
+    font-family: 'fontawesome';
+    height: 1px;
+    width: 0;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
     transition: all .3s ease-in-out;
 }
-
-ul li a:hover,
-ul li a:focus,
-ul li a:active{
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-}
-.box i{
-    display : none;
+.main2 li a:hover::after{
+   width: 90%;
+   left: 0; 
 }
 
 
 
-
-@media all and (max-width: 600px){
-    .simple{
+@media all and (max-width:600px){
+    .main,.main2{
         flex-wrap: wrap;
-        transform: translateY(0);
+        display: none;
         transition: all .3s ease-in-out;
     }
-    .nav-list{
-        overflow: hidden;
+    .main.active,hr,.main2.active{
+        display: block;
     }
-    .simple.active{
-        transform: translateY(-135%);
-    }
-    .simple li{
+    
+    .main li,.main2 li{
         flex-basis: 100%;
     }
-    .box i{
-        border: 2px solid;
-        padding: 10px 15px 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        display : block;
+    .main li a:hover, 
+    .main li a:focus, 
+    .main li a:active{
+        background-color: var(--color-primary);
+        color: var(--bg-color);
+        transform: scale(0.75,0.75);
+        outline: 0px;
     }
-    .box{
+    .icon {
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+    .icon i{
+        display: block;
+    }
+    .main2 li:last-child{
+        margin-bottom: 20px;
+    }
+    .main2 li a{
+        transition: all .3s ease-in-out;
+    }
+    .main2 li a:hover{
+        background-color: var(--color-primary);
+        color: var(--bg-color)
+    }
+    .main2 li a::after{
+        content: none;
+    }
+    .container{
+        margin: 40px auto;
     }
 }
